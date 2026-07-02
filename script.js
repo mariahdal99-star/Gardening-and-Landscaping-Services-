@@ -10,7 +10,8 @@ const firebaseConfig = {
   messagingSenderId: "721680518429",
   appId: "1:721680518429:web:63134f52306b829b28e5f4",
   measurementId: "G-BBVQZEHQ7D"
-// Initialize Firebase
+   }; 
+//nitialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const guestbookCol = collection(db, "guestbook");
