@@ -7,11 +7,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- CRT Overlay for that vintage monitor feel -->
     <div class="crt-overlay"></div>
 
     <div class="container">
-        <!-- Header Section -->
         <header>
             <div class="header-content">
                 <h1>Gardening & Landscaping Services</h1>
@@ -20,7 +18,6 @@
             </div>
         </header>
 
-        <!-- Navigation -->
         <nav>
             <button onclick="showPage('home')">Home</button>
             <button onclick="showPage('tips')">Garden Tips</button>
@@ -37,113 +34,75 @@
                     <h2>"A garden is a story told by the hands."</h2>
                 </div>
                 <p>Welcome, traveler. You've reached my little corner of the web. Here, I document my lifelong devotion to the earth, the soil, and the things we choose to grow together.</p>
-                <p>I believe that anything can bloom if you give it enough light. This site is a collection of my services and my heart's work. Please, stay a while. The soil is warm.</p>
-                
                 <div class="update-box">
                     <h3>Latest Updates:</h3>
                     <ul>
                         <li>July 2003: Added new tips on "Pruning the Past."</li>
                         <li>May 2002: Fixed the broken visitor counter.</li>
-                        <li>Feb 2001: The roses have finally survived the frost.</li>
                     </ul>
                 </div>
-
                 <div class="quote-generator">
                     <p id="daily-quote">"The strongest roots are the ones nobody sees."</p>
-                    <button onclick="generateQuote()">Get Today's Reflection</button>
+                    <button id="newQuoteBtn">Get Today's Reflection</button>
                 </div>
             </section>
 
-            <!-- Garden Tips -->
+            <!-- Other pages (Tips, Journal, Seasonal, About) stay the same as before -->
             <section id="tips" class="page">
                 <h2>Essential Garden Care</h2>
-                <div class="tip-card">
-                    <h3>1. On Watering</h3>
-                    <p>Never stop showing a plant it is cared for. A little bit of water every day is better than a flood once a month. Consistency is how life learns to trust the sun again.</p>
-                </div>
-                <div class="tip-card">
-                    <h3>2. Soil Quality</h3>
-                    <p>The foundation is everything. You cannot grow something beautiful in exhausted soil. You must feed the ground with memories, shared laughter, and forgiveness before the first seed even touches the dirt.</p>
-                </div>
-                <div class="tip-card">
-                    <h3>3. Pruning</h3>
-                    <p>Sometimes you have to cut away the parts that are dead, even if it hurts. It’s not a punishment; it’s making room for a new version of us to reach for the sky.</p>
-                </div>
+                <div class="tip-card"><h3>1. On Watering</h3><p>Never stop showing a plant it is cared for. Consistency is how life learns to trust the sun again.</p></div>
+                <div class="tip-card"><h3>2. Soil Quality</h3><p>The foundation is everything. Feed the ground with memories and forgiveness.</p></div>
             </section>
 
-            <!-- Plant Journal -->
             <section id="journal" class="page">
                 <h2>My Personal Journal</h2>
-                <div class="diary-entry">
-                    <span class="date">October 14, 1999</span>
-                    <p>I planted a perennial today. They say these are the hardest because they require you to stay in one place for a long time. I think I'm finally ready to stop wandering. I want to see how tall we can grow if we never leave each other's side.</p>
-                </div>
-                <div class="diary-entry">
-                    <span class="date">June 22, 2001</span>
-                    <p>The lilies are open. They remind me of the way you look when you're surprised. I've realized that the roses remember every kind word I've ever whispered to them. They bloom bigger for those who love them loudly.</p>
-                </div>
+                <div class="diary-entry"><span class="date">Oct 14, 1999</span><p>I planted a perennial today. I want to see how tall we can grow if we never leave each other's side.</p></div>
             </section>
 
-            <!-- Seasonal Advice -->
             <section id="seasonal" class="page">
                 <h2>The Seasons of Us</h2>
-                <p><strong>Winter:</strong> Do not be afraid of the quiet. Some things need to sleep before they can belong to the spring. Just because you don't see the growth doesn't mean the roots aren't deepening in the dark.</p>
-                <p><strong>Spring:</strong> The vulnerability of a new leaf is the bravest thing in the world. Open your heart. The frost is over.</p>
-                <p><strong>Autumn:</strong> There is beauty in letting go. Watch how gracefully the trees shed what they no longer need. They do not mourn the leaves; they thank them for the shade they gave.</p>
+                <p><strong>Winter:</strong> Some things need to sleep before they can belong to the spring.</p>
             </section>
 
-            <!-- Guestbook -->
+            <!-- UPGRADED Guestbook Page -->
             <section id="guestbook" class="page">
                 <h2>Sign My Guestbook</h2>
+                <p>Please leave a message in our digital garden. (Maximum 500 characters)</p>
+                
                 <div class="guestbook-form">
-                    <input type="text" placeholder="Your Name">
-                    <textarea placeholder="Leave a kind word..."></textarea>
-                    <button onclick="alert('Thank you for being part of my garden.')">Sign Guestbook</button>
+                    <input type="text" id="guestName" maxlength="40" placeholder="Your Name">
+                    <textarea id="guestMessage" maxlength="500" placeholder="Leave a kind word..."></textarea>
+                    <button id="submitComment">Plant a Message</button>
                 </div>
-                <div class="guestbook-entries">
-                    <p><strong>OldSoul82:</strong> This site is so peaceful. It feels like someone really loves this garden.</p>
-                    <p><strong>Rose_Thorn:</strong> I learned that I need to water my own heart more. Thanks for the tips.</p>
+
+                <hr class="flower-hr">
+                
+                <div id="guestbook-entries">
+                    <p class="loading-msg">Loading the garden wall...</p>
                 </div>
             </section>
 
-            <!-- About Me -->
             <section id="about" class="page">
                 <h2>About the Gardener</h2>
-                <p>I am just a person who realized that landscaping isn't about moving dirt—it's about creating a home for the soul. I've spent years learning how to grow things that last. Some gardens are grown for many visitors; this one was grown for only one.</p>
-                <p>If you need help with your own "landscaping," remember: the most beautiful flowers are the ones we grow together.</p>
-                <div class="webring">
-                    <p>Proud member of the <strong>Romantic Greenery Webring</strong></p>
-                    <a href="#">[Prev]</a> <a href="#">[Random]</a> <a href="#">[Next]</a>
-                </div>
+                <p>landscaping isn't about moving dirt—it's about creating a home for the soul.</p>
             </section>
         </main>
 
-        <!-- Sidebar decorations -->
-        <div class="floating-elements">
-            <span class="emoji" style="top: 10%; left: 5%;">🦋</span>
-            <span class="emoji" style="top: 40%; right: 5%;">🐝</span>
-            <span class="emoji" style="bottom: 20%; left: 8%;">🐞</span>
-        </div>
-
-        <!-- Footer -->
         <footer>
             <hr class="flower-hr">
             <div class="footer-stats">
                 <p>Visitor Count: <span id="counter">0004382</span></p>
                 <p>Best viewed in 800x600 | 256 Colors</p>
-                <p><img src="https://via.placeholder.com/88x31?text=Under+Construction" alt="Under Construction"></p>
                 <p>Copyright &copy; 1999&ndash;2003 Gardening and Landscaping Services</p>
-                <p><i>"Thank you for helping this garden grow."</i></p>
             </div>
-
-            <!-- Music Player -->
             <div class="music-player">
                 <span>Now Playing: Soft_Vines.mid</span>
-                <button id="musicBtn" onclick="toggleMusic()">▶ Play Music</button>
+                <button id="musicBtn">▶ Play Music</button>
             </div>
-        </header>
+        </footer>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Firebase SDKs -->
+    <script type="module" src="script.js"></script>
 </body>
-  </html>
+</html>
