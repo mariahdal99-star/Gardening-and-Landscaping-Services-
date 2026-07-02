@@ -1,0 +1,177 @@
+/* General Setup */
+:root {
+    --bg-color: #fdf5e6; /* Old Lace / Cream */
+    --text-color: #5d4037; /* Warm Brown */
+    --accent-green: #2e7d32;
+    --amber-glow: #ffbf00;
+    --rust: #a0522d;
+}
+
+body {
+    background-color: var(--bg-color);
+    background-image: url('https://www.transparenttextures.com/patterns/pinstriped-suit.png'); /* Subtle texture */
+    color: var(--text-color);
+    font-family: "Times New Roman", Times, serif;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* CRT Scanline Effect */
+.crt-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+    background-size: 100% 3px, 3px 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fffaf0;
+    border: 3px outset var(--rust);
+    padding: 20px;
+    box-shadow: 10px 10px 0px rgba(0,0,0,0.1);
+}
+
+/* Header & Typography */
+h1 {
+    font-family: "Courier New", Courier, monospace;
+    text-align: center;
+    color: var(--accent-green);
+    text-shadow: 2px 2px #ccc;
+    border-bottom: 2px dashed var(--rust);
+}
+
+.blink {
+    text-align: center;
+    font-weight: bold;
+    color: var(--rust);
+    animation: blinker 1.5s linear infinite;
+}
+
+@keyframes blinker {
+    50% { opacity: 0; }
+}
+
+/* Navigation Buttons */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 20px;
+    background: var(--accent-green);
+    padding: 10px;
+}
+
+nav button {
+    background: #e0e0e0;
+    border: 2px outset #fff;
+    padding: 5px 15px;
+    cursor: pointer;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+}
+
+nav button:active {
+    border-style: inset;
+}
+
+/* Content Sections */
+.page {
+    display: none;
+    padding: 20px;
+    animation: fadeIn 0.5s;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.wooden-sign {
+    background: #deb887;
+    border: 4px solid #8b4513;
+    padding: 10px;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.tip-card, .diary-entry {
+    background: rgba(255, 255, 255, 0.5);
+    border-left: 5px solid var(--accent-green);
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.date {
+    font-family: 'Pixel', monospace;
+    font-size: 0.8em;
+    color: var(--rust);
+    display: block;
+}
+
+/* Decorations */
+.flower-hr {
+    border: 0;
+    height: 30px;
+    background-image: url('https://www.transparenttextures.com/patterns/flowers.png');
+    background-repeat: repeat-x;
+    margin: 20px 0;
+}
+
+.emoji {
+    position: absolute;
+    font-size: 24px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Footer & Extras */
+footer {
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 40px;
+}
+
+.music-player {
+    background: #333;
+    color: var(--amber-glow);
+    padding: 10px;
+    display: inline-block;
+    margin-top: 10px;
+    border: 2px solid #555;
+    font-family: monospace;
+}
+
+.quote-generator {
+    background: #fff8dc;
+    border: 1px dotted var(--rust);
+    padding: 15px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.quote-generator button {
+    background: var(--rust);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container { width: 95%; padding: 10px; }
+    nav button { width: 100%; }
+}
