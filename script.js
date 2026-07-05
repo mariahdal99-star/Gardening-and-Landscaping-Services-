@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getFirestore, collection, addDoc, serverTimestamp, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-// --- 1. FIREBASE CONFIGURATION ---
+// 1. FIREBASE CONFIGURATION
 const firebaseConfig = {
   apiKey: "AIzaSyDbkpCjUX-ePA07d_WyswDCcPC9h23u4O4",
   authDomain: "gardeninglandscape-7f981.firebaseapp.com",
@@ -12,168 +12,83 @@ const firebaseConfig = {
   measurementId: "G-BBVQZEHQ7D"
 }; 
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const guestbookCol = collection(db, "guestbook");
 
-// --- 2. MAIN NAVIGATION LOGIC ---
-// Switches between Home, Tips, Photos, etc.
+// 2. MAIN NAVIGATION
 window.showPage = function(pageId) {
-    // Hide all pages
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    
-    // Show the target page
-    const targetPage = document.getElementById(pageId);
-    if (targetPage) {
-        targetPage.classList.add('active');
-    }
-    
-    // Scroll to top
+    const target = document.getElementById(pageId);
+    if (target) target.classList.add('active');
     window.scrollTo(0, 0);
 };
 
-// --- 3. RESOURCE HUB (SUB-TIPS) LOGIC ---
-// Switches categories inside the "Garden Tips" section
+// 3. RESOURCE HUB (SUB-TIPS)
 window.showSubTip = function(tipId) {
-    // Hide all sub-tip content
     document.querySelectorAll('.sub-tip').forEach(t => t.classList.remove('active'));
-    
-    // Remove the "Active" look from all hub buttons
     document.querySelectorAll('.tips-menu button').forEach(b => b.classList.remove('active-btn'));
 
-    // Show the specific category (Propagation, Pests, etc.)
-    const targetSubTip = document.getElementById('tip-' + tipId);
-    if (targetSubTip) {
-        targetSubTip.classList.add('active');
-    }
+    const target = document.getElementById('tip-' + tipId);
+    if (target) target.classList.add('active');
 
-    // Find the button that was clicked and make it look "pushed down"
-    const clickedBtn = Array.from(document.querySelectorAll('.tips-menu button'))
-                            .find(btn => btn.getAttribute('onclick').includes(tipId));
-    if (clickedBtn) clickedBtn.classList.add('active-btn');
+    const btn = Array.from(document.querySelectorAll('.tips-menu button'))
+                     .find(b => b.getAttribute('onclick').includes(tipId));
+    if (btn) btn.classList.add('active-btn');
 };
 
-// --- 4. SOIL PH CALCULATOR LOGIC ---
+// 4. PH CALCULATOR
 window.calculatePH = function() {
     const val = document.getElementById('phValue').value;
-    const result = document.getElementById('phResult');
-    
-    if(val === "bitter") {
-        result.innerText = "Analysis: Soil is too acidic. Add forgiveness and lime to neutralize the pain.";
-    } else if(val === "sweet") {
-        result.innerText = "Analysis: Soil is overly alkaline. Add deep memories and peat moss to ground the roots.";
-    } else {
-        result.innerText = "Analysis: Balance achieved. The roots feel safe here.";
-    }
+    const res = document.getElementById('phResult');
+    if(val === "bitter") res.innerText = "Soil is too acidic. Add forgiveness and lime.";
+    else if(val === "sweet") res.innerText = "Soil is overly alkaline. Add deep memories.";
+    else res.innerText = "Balance achieved. The roots feel safe.";
 };
 
-// --- 5. GUESTBOOK LOGIC ---
-const nameInput = document.getElementById('guestName');
-const msgInput = document.getElementById('guestMessage');
-const submitBtn = document.getElementById('submitComment');
+// 5. GUESTBOOK LOGIC
 const entriesDiv = document.getElementById('guestbook-entries');
+const submitBtn = document.getElementById('submitComment');
 
-// Save a new message to Firebase
 if (submitBtn) {
-    submitBtn.addEventListener('click', async () => {
-        const name = nameInput.value.trim();
-        const msg = msgInput.value.trim();
-
-        if (!name || !msg) return; 
-        
-        submitBtn.disabled = true;
+    submitBtn.onclick = async () => {
+        const name = document.getElementById('guestName').value.trim();
+        const msg = document.getElementById('guestMessage').value.trim();
+        if (!name || !msg) return;
         submitBtn.innerText = "Planting...";
-
         try {
-            await addDoc(guestbookCol, {
-                name: name,
-                message: msg,
-                timestamp: serverTimestamp()
-            });
-            nameInput.value = "";
-            msgInput.value = "";
-        } catch (e) {
-            console.error("Error adding document: ", e);
-            alert("The soil is too hard! Try again later.");
-        }
-        
-        submitBtn.disabled = false;
+            await addDoc(guestbookCol, { name, message: msg, timestamp: serverTimestamp() });
+            document.getElementById('guestName').value = "";
+            document.getElementById('guestMessage').value = "";
+        } catch (e) { alert("Soil error! Try later."); }
         submitBtn.innerText = "Plant a Message";
-    });
+    };
 }
 
-// Load messages from Firebase in real-time
-const q = query(guestbookCol, orderBy("timestamp", "desc"));
-onSnapshot(q, (snapshot) => {
+onSnapshot(query(guestbookCol, orderBy("timestamp", "desc")), (snap) => {
     if (!entriesDiv) return;
-    
-    if (snapshot.empty) {
-        entriesDiv.innerHTML = "<p><i>No comments yet. Be the first flower in the garden.</i></p>";
-        return;
-    }
-
-    entriesDiv.innerHTML = ""; 
-    snapshot.forEach((doc) => {
-        const data = doc.data();
-        const date = data.timestamp ? data.timestamp.toDate().toLocaleString() : "Just now";
-        
+    if (snap.empty) { entriesDiv.innerHTML = "<p><i>No flowers yet...</i></p>"; return; }
+    entriesDiv.innerHTML = "";
+    snap.forEach(doc => {
+        const d = doc.data();
+        const date = d.timestamp ? d.timestamp.toDate().toLocaleString() : "Just now";
         const div = document.createElement('div');
         div.className = 'guest-entry';
-        
-        // Escape HTML to prevent code injection
-        const safeName = document.createTextNode(data.name);
-        const safeMsg = document.createTextNode(data.message);
-        
-        div.innerHTML = `
-            <div class="entry-header">
-                <span class="entry-name"></span>
-                <span class="entry-date">${date}</span>
-            </div>
-            <div class="entry-msg"></div>
-        `;
-        
-        div.querySelector('.entry-name').appendChild(safeName);
-        div.querySelector('.entry-msg').appendChild(safeMsg);
+        div.innerHTML = `<div class="entry-header"><b>${d.name}</b> <small>${date}</small></div><p>${d.message}</p>`;
         entriesDiv.appendChild(div);
     });
 });
 
-// --- 6. MISC DECORATIONS ---
-// Quote Generator
-const quotes = [
-    "The strongest roots are the ones nobody sees.",
-    "The roses remember every kind word you've ever whispered.",
-    "Water what makes your heart bloom.",
-    "Patience is the sun that makes the late bloomers finally open.",
-    "The garden dislikes being watched as much as it dislikes being abandoned.",
-    "Some gardens are grown for the world; this one is grown only for you."
-];
+// 6. DECORATIONS
+const quotes = ["The strongest roots are the ones nobody sees.", "Patience is the sun."];
+document.getElementById('newQuoteBtn').onclick = () => {
+    document.getElementById('daily-quote').innerText = `"${quotes[Math.floor(Math.random()*quotes.length)]}"`;
+};
 
-const quoteBtn = document.getElementById('newQuoteBtn');
-if (quoteBtn) {
-    quoteBtn.onclick = () => {
-        const q = quotes[Math.floor(Math.random() * quotes.length)];
-        document.getElementById('daily-quote').innerText = `"${q}"`;
-    };
-}
-
-// Visitor Counter Simulation
 let count = 4382;
 setInterval(() => {
-    const counterEl = document.getElementById('counter');
-    if (counterEl && Math.random() > 0.9) {
+    if (Math.random() > 0.9) {
         count++;
-        counterEl.innerText = count.toString().padStart(7, '0');
+        document.getElementById('counter').innerText = count.toString().padStart(7, '0');
     }
 }, 3000);
-
-// Music Player Simulation
-let isPlaying = false;
-const musicBtn = document.getElementById('musicBtn');
-if (musicBtn) {
-    musicBtn.onclick = function() {
-        this.innerText = isPlaying ? "▶ Play Music" : "■ Stop Music";
-        isPlaying = !isPlaying;
-    };
-}
