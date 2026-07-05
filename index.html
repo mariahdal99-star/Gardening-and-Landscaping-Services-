@@ -4,33 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gardening and Landscaping Services - Welcome to the Journal🌺</title>
-    <link rel="stylesheet" href="style.css?v=1.1">
+    <link rel="stylesheet" href="style.css?v=1.2">
 </head>
 <body>
+    <!-- Vintage CRT Scanline Effect -->
     <div class="crt-overlay"></div>
 
     <div class="container">
+        <!-- Header Section -->
         <header>
             <table class="top-header">
                 <tr>
-                    <td class="flower-left">🌼🌿🌼</td>
+                    <td class="flower-side">🌼🌿🌼</td>
                     <td class="title-cell">
-                        <h1>Gardening & Landscaping Services</h1>
+                        <h1 class="dark-green">Gardening & Landscaping Services</h1>
                         <p class="subtitle">
                             <span class="dark-blue">ESTABLISHED 1999</span> •
                             <span class="dark-green">QUALITY YOU CAN TRUST</span> •
+                            <span class="dark-blue">WELCOME MY LOVES🌺💗</span>
                         </p>
                     </td>
-                    <td class="flower-right">🌸🦋🌸</td>
+                    <td class="flower-side">🌸🦋🌸</td>
                 </tr>
             </table>
+            <!-- Main Banner Image -->
             <img src="banner.jpg" alt="Gardening Banner" class="banner-img">
         </header>
 
+        <!-- Scrolling Ticker -->
         <marquee behavior="alternate" scrollamount="3">
             🌿 Welcome to my diary! Come back every 6th of the month, my loves. I will upload new gallery updates!!! 🌿
         </marquee>
 
+        <!-- Main Navigation Bar -->
         <nav>
             <button onclick="showPage('home')">Home</button>
             <button onclick="showPage('tips')">Garden Tips</button>
@@ -41,20 +47,21 @@
         </nav>
 
         <main id="content">
-            <!-- Home Page -->
+            <!-- HOME PAGE -->
             <section id="home" class="page active">
                 <div class="wooden-sign">
-                    <h2>🌿 My Little Garden of Memories 🌿</h2>
+                    <h2 class="dark-blue">🌿 My Little Garden of Memories 🌿</h2>
                 </div>
-                <p>Welcome, loves!</p>
+
+                <p class="dark-green">Welcome, loves!</p>
                 <p>
-                    My name is <b>XYZ</b>. I have cared for this garden since the spring of 1999.
-                    Flowers grow best when someone remembers them. 
-                    My lilies have finally bloomed, and I'll be sharing their growth through this website. 
-                    Thank you for all your support, my loves.
+                    My name is <b>Flowerpower</b>. I have cared for this garden since the spring of 1999.
+                    Flowers grow best when someone remembers them. My lilies have finally bloomed, 
+                    and I'll be sharing their growth through this website. Thank you for all your support.
                     Please don't forget to sign the guestbook before you leave.
                 </p>
 
+                <!-- Secret Story Maintenance Log -->
                 <div class="retro-log-container">
                     <h3 class="maintenance-title">🌷 Garden Maintenance Log 🌷</h3>
                     <ul class="log-list">
@@ -62,147 +69,7 @@
                         <li><span class="log-date">2001:</span> The garden remained quiet. Something beneath it did not.</li>
                         <li><span class="log-date">2003:</span> Pruned the hedges. They grew back overnight.</li>
                         <li><span class="log-date">2006:</span> Removed an old scarecrow. It returned before dawn.</li>
-                        <li><span class="log-date">2018:</span> Someone waved from inside the greenhouse. There is no greenhouse.</li>
+                        <li><span class="log-date">2012:</span> Birds stopped singing near the eastern fence.</li>
+                        <li><span class="log-date">2020:</span> The garden no longer needs watering after midnight.</li>
                         <li><span class="log-date">2023:</span> Counted twelve lilies. The next morning there were thirteen.</li>
-                        <li class="special-final-entry">
-                            <span class="log-date">2026:</span> <b>My lilies finally bloomed. Every flower opened on June 6, 12:33 A.M. I don't remember planting the last one.</b>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="quote-generator">
-                    <p id="daily-quote">"The strongest roots are the ones nobody sees."</p>
-                    <button id="newQuoteBtn">Today's Reflection</button>
-                </div>
-            </section>
-
-            <!-- CORRECTED TIPS SECTION -->
-            <section id="tips" class="page">
-                <div class="wooden-sign">
-                    <h2 class="dark-blue">🌿 Master Gardener's Resource Hub 🌿</h2>
-                </div>
-
-                <div class="tips-menu">
-                    <button onclick="showSubTip('propagation')">Propagation</button>
-                    <button onclick="showSubTip('species')">Species Database</button>
-                    <button onclick="showSubTip('pests')">Pests</button>
-                    <button onclick="showSubTip('calculator')">pH Calculator</button>
-                    <button onclick="showSubTip('calendar')">Calendar</button>
-                    <button onclick="showSubTip('research')">Library</button>
-                </div>
-
-                <hr class="flower-hr">
-
-                <div id="tip-propagation" class="sub-tip active">
-                    <h3 class="maintenance-title">🌱 Propagation Guide</h3>
-                    <p>A single scale, if handled with devotion, can grow an entire new life.</p>
-                    <div class="tip-card"><b class="dark-blue">Scaling:</b> Peel a single piece from the heart of the bulb.</div>
-                    <div class="tip-card"><b class="dark-blue">Division:</b> When a clump becomes too crowded, it is time to separate.</div>
-                </div>
-
-                <div id="tip-species" class="sub-tip">
-                    <h3 class="maintenance-title">🌺 Lily Species Database</h3>
-                    <p>Access the global database: <a href="https://garden.org/plants/" target="_blank" class="dark-blue">Official Lily Registry</a></p>
-                    <table class="species-table" border="1" width="100%">
-                        <tr bgcolor="#006400"><th style="color:#FFFF00">Class</th><th style="color:#FFFF00">Nature</th></tr>
-                        <tr><td><b>Asiatic</b></td><td>Bright, bold, and early. They speak loudly but have no scent.</td></tr>
-                        <tr><td><b>Oriental</b></td><td>Heavily perfumed and elegant. They demand your full attention.</td></tr>
-                    </table>
-                </div>
-
-                <div id="tip-pests" class="sub-tip">
-                    <h3 class="maintenance-title">🐛 Garden Pest Identification</h3>
-                    <div class="tip-card" style="border-color: red;"><b style="color:red">The Scarlet Lily Beetle:</b> A bright red invader. Catch it early.</div>
-                </div>
-
-                <div id="tip-calculator" class="sub-tip">
-                    <h3 class="maintenance-title">🧪 Soil pH Calculator</h3>
-                    <p>Use the <a href="https://growing.farm/tools/soil-ph-up-calculator" target="_blank" class="dark-blue">pH Balancing Tool</a>.</p>
-                    <div class="calc-box">
-                        <label>Current Soil Heart-State:</label><br>
-                        <select id="phValue">
-                            <option value="bitter">Bitter / Sour (Low pH)</option>
-                            <option value="sweet">Sweet / Kind (High pH)</option>
-                            <option value="neutral">Neutral / Balanced</option>
-                        </select>
-                        <button onclick="calculatePH()">Analyze Soil</button>
-                        <p id="phResult" class="dark-blue"><i>Awaiting sample...</i></p>
-                    </div>
-                </div>
-
-                <div id="tip-calendar" class="sub-tip">
-                    <h3 class="maintenance-title">📅 Gardening Calendar</h3>
-                    <div class="calendar-grid">
-                        <div class="month-box"><b class="log-date">MAR</b> Plant new hopes.</div>
-                        <div class="month-box"><b class="log-date">JUN</b> Watch for the first opening.</div>
-                    </div>
-                </div>
-
-                <div id="tip-research" class="sub-tip">
-                    <h3 class="maintenance-title">📖 Research Library</h3>
-                    <div class="tip-card"><b>Study #2026-X:</b> "The 3:33 AM Phenomenon." Observations confirm growth happens when the gardener is asleep.</div>
-                </div>
-            </section>
-
-            <!-- PHOTO GALLERY SECTION -->
-            <section id="photos" class="page">
-                <div class="wooden-sign">
-                    <h2 class="dark-blue">🌿 Garden Archive & Memories 🌿</h2>
-                </div>
-                <p class="dark-green" style="text-align: center;"><i>"Every bloom is a memory frozen in time."</i></p>
-                <div class="gallery-container">
-                    <div class="gallery-item">
-                        <img src="photo1.jpg" alt="Garden Memory 1" class="gallery-img">
-                        <div class="gallery-text">
-                            <h3 class="dark-blue">The First Lily of 1999</h3>
-                            <p class="dark-green">This was the very first bulb I planted. Patience is the sun of the garden.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="photo2.jpeg" alt="Garden Memory 2" class="gallery-img">
-                        <div class="gallery-text">
-                            <h3 class="dark-blue">The Midnight Bloom</h3>
-                            <p class="dark-green">Some flowers arrive with fireworks, while others quietly take root in everyday conversations.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="journal" class="page">
-                <h2>Plant Journal</h2>
-                <div class="diary-entry">
-                    <span class="date">October 14, 1999</span>
-                    <p>Something is growing in the back corner. I will feed it tomorrow.</p>
-                </div>
-            </section>
-
-            <section id="guestbook" class="page">
-                <h2>Sign My Guestbook, my love 💗</h2>
-                <div class="guestbook-form">
-                    <input type="text" id="guestName" maxlength="40" placeholder="Your Name">
-                    <textarea id="guestMessage" maxlength="500" placeholder="Message..."></textarea>
-                    <button id="submitComment">Plant a Message</button>
-                </div>
-                <div id="guestbook-entries"></div>
-            </section>
-
-            <section id="about" class="page">
-                <h2>About Me</h2>
-                <p>I live here alone, but I am rarely lonely. The garden provides plenty of company.</p>
-            </section>
-        </main>
-
-        <footer>
-            <hr class="flower-hr">
-            <p>🌻 Best viewed in 800×600 | Green since 1999 🌻</p>
-            <p>Visitor Count: <span id="counter">0004382</span></p>
-            <div class="music-player">
-                <p>🌼 Now Playing: <b>Soft_Vines.mid</b></p>
-                <button id="musicBtn">▶ Play Music</button>
-            </div>
-        </footer>
-    </div>
-
-    <script type="module" src="script.js"></script>
-</body>
-</html>
+                        <li class="special-fin
