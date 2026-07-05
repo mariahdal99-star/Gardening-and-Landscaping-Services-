@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gardening and Landscaping Services - Welcome to the Garden</title>
+    <title>Gardening and Landscaping Services - Welcome to the Journal🌺</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,12 +11,24 @@
     <div class="crt-overlay"></div>
 
     <div class="container">
+        <!-- FIXED: Added the opening header tag here -->
         <header>
-            <div class="header-content">
-                <h1>Gardening & Landscaping Services</h1>
-                <p class="blink">*** ESTABLISHED 1999 - QUALITY YOU CAN TRUST ***</p>
-                <img src="https://via.placeholder.com/468x60?text=Everything+is+growing+exactly+as+planned" alt="Banner" class="banner">
-            </div>
+            <table class="top-header">
+                <tr>
+                    <td class="flower-left">🌼🌿🌼</td>
+                    <td class="title-cell">
+                        <h1>Gardening & Landscaping Services</h1>
+                        <p class="subtitle">
+                            <span class="blue">ESTABLISHED 1999</span> •
+                            <span class="green">QUALITY YOU CAN TRUST</span> •
+                            <span class="blue">WELCOME LOVE</span>
+                        </p>
+                    </td>
+                    <td class="flower-right">🌸🦋🌸</td>
+                </tr>
+            </table>
+
+            <img src="banner.png" alt="Gardening Banner" class="banner">
         </header>
 
         <nav>
@@ -39,9 +51,21 @@
                 <div class="update-box">
                     <h3>Maintenance Log:</h3>
                     <ul>
-                        <li>July 2003: Pruned the hedges. They didn't like it.</li>
-                        <li>May 2002: Visitor counter reset after the... incident.</li>
-                        <li>Jan 2001: The soil is unusually warm this winter.</li>
+                        <li>1999: Planted the first lily. It refused to bloom.</li>
+                        <li>2000: Added richer soil. The roots spread farther than expected.</li>
+                        <li>2001: The garden remained quiet. Something beneath it did not.</li>
+                        <li>2002: Visitors reported hearing footsteps after sunset. No tracks were found.</li>
+                        <li>2003: Pruned the hedges. They grew back overnight.</li>
+                        <li>2004: Every flower now faces the house, even in darkness.</li>
+                        <li>2006: Removed an old scarecrow. It returned before dawn.</li>
+                        <li>2009: The lilies began blooming where nothing had ever been planted.</li>
+                        <li>2012: Birds stopped singing near the eastern fence.</li>
+                        <li>2015: The soil has become unusually warm every October.</li>
+                        <li>2018: Several guests claimed someone waved from the greenhouse. It has always been empty.</li>
+                        <li>2020: The garden no longer needs watering after midnight.</li>
+                        <li>2023: Counted twelve lilies. The next morning there were thirteen.</li>
+                        <li>2025: I finally stopped asking who keeps tending the garden while I sleep.</li>
+                        <li><strong>2026: After twenty-seven years of patient care, my lilies finally bloomed. They opened all at once at June 06 at  12 :33 A.M. They were already watching me.</strong></li>
                     </ul>
                 </div>
 
@@ -51,10 +75,9 @@
                 </div>
             </section>
 
-            <!-- CORRECTED TIPS SECTION -->
+            <!-- TIPS SECTION -->
             <section id="tips" class="page">
-                <h2>Essential Garden Care</h2>
-
+              <h2>🌼 Gardening Tips 🌼</h2>
                 <div class="tip-card">
                     <h3>1. Water Before Sunrise</h3>
                     <p>Experienced gardeners know that plants prefer to be watered before the sun rises. If you hear them asking for water after dark, close your curtains. Healthy plants never speak after sunset.</p>
@@ -105,9 +128,9 @@
                 </div>
             </section>
 
-            <!-- Guestbook Section (Required for Firebase) -->
+            <!-- Guestbook Section -->
             <section id="guestbook" class="page">
-                <h2>Sign My Guestbook</h2>
+                <h2>Sign My Guestbook, my love 💗</h2>
                 <p>Did you enjoy your walk through the hedges? Leave a message before you go.</p>
                 
                 <div class="guestbook-form">
@@ -132,20 +155,19 @@
 
         <footer>
             <hr class="flower-hr">
-            <div class="footer-stats">
-                <p>Visitor Count: <span id="counter">0004382</span></p>
-                <p>Best viewed in 800x600 | 256 Colors</p>
-                <p>Copyright &copy; 1999&ndash;2003 Gardening and Landscaping Services</p>
-                <p><i>"Thank you for becoming part of the soil."</i></p>
-            </div>
+            <p>
+                🌻 Best viewed in 800×600 | Made with HTML | Green since 1999 🌻
+            </p>
+            <p>
+                Visitor Count: <span id="counter">0004382</span>
+            </p>
             <div class="music-player">
-                <span>Now Playing: Forest_Whispers.mid</span>
+                <p>🌼 Now Playing: <b>Soft_Vines.mid</b></p>
                 <button id="musicBtn">▶ Play Music</button>
             </div>
         </footer>
-    </div>
+    </div> <!-- This closes the container div -->
 
-    <!-- This links your JavaScript file. Make sure type="module" is there for Firebase! -->
     <script type="module" src="script.js"></script>
 </body>
 </html>
