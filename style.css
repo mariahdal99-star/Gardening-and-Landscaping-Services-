@@ -241,3 +241,52 @@ footer {
     background-image: url('https://www.transparenttextures.com/patterns/flowers.png');
     background-repeat: repeat-x;
 }
+/* --- Tips Hub Sub-Menu --- */
+.tips-menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+.tips-menu button {
+    background: #e0e0e0;
+    border: 1px solid #000;
+    font-size: 0.8em;
+    padding: 5px;
+    cursor: pointer;
+}
+.sub-tip { display: none; }
+.sub-tip.active { display: block; animation: fadeIn 0.3s; }
+
+/* --- Table & Calendar Styles --- */
+.species-table {
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 0.9em;
+}
+.species-table td, .species-table th { padding: 8px; border: 1px solid var(--dark-green); }
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.month-box {
+    border: 1px dashed var(--dark-green);
+    padding: 10px;
+    background: #fdfdfd;
+}
+
+.calc-box {
+    background: #eee;
+    border: 2px inset #fff;
+    padding: 15px;
+    text-align: center;
+}
+/* Highlights which category you are currently viewing */
+.tips-menu button:active, .tips-menu button.active-btn {
+    background: var(--dark-green);
+    color: var(--bright-yellow);
+    border: 1px inset #000;
+}
