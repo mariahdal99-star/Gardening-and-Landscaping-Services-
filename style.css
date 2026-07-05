@@ -40,10 +40,12 @@ h1 { font-family: "Courier New", Courier, monospace; text-align: center; margin:
 
 /* Banner Image */
 .banner-img {
-    width: 100%;
-    height: auto;
+    display: block;
+    width: 100%;        /* This makes it fill the container width */
+    max-width: 100%;    /* This prevents it from overflowing */
+    height: auto;       /* This keeps the picture from looking stretched */
     border: 2px solid var(--dark-green);
-    margin-top: 10px;
+    margin: 10px auto;  /* Centers the image */
 }
 
 /* The Marquee Ticker */
