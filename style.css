@@ -153,7 +153,9 @@ nav button:active {
 }
 
 /* --- 7. Photo Gallery & Scrapbook Styles --- */
-#photos.page { text-align: center; }
+#photos.page { 
+    text-align: center; 
+}
 
 .gallery-container {
     display: flex;
@@ -161,27 +163,29 @@ nav button:active {
     align-items: center;
     gap: 30px;
     margin-top: 20px;
+    width: 100%; /* Ensures container stays within the white page */
 }
 
 .gallery-item {
+    box-sizing: border-box; /* This keeps padding inside the box */
     background: #ffffff;
     border: 1px solid var(--border-gray);
-    padding: 20px;
+    padding: 15px;
     box-shadow: 8px 8px 0px #cccccc;
-    max-width: 600px;
-    width: 95%;
+    max-width: 100%; /* Prevents the box from growing wider than the page */
+    width: 100%;
     text-align: center;
+    overflow: hidden; /* Prevents anything from spilling out */
 }
 
 .gallery-img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border: 1px solid #000;
-    margin-bottom: 15px;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 15px auto;
+    max-width: 100%;    /* This forces the image to stay INSIDE the box */
+    height: auto;
+    max-height: 500px;  /* This stops vertical photos from being too huge */
+    object-fit: contain; /* This keeps the photo from stretching */
+    border: 1px solid #000;
 }
 
 .gallery-text {
@@ -189,8 +193,8 @@ nav button:active {
     border-top: 1px dashed var(--dark-green);
     text-align: left;
     background-color: #fafafa;
+    word-wrap: break-word; /* Prevents long text from breaking the box */
 }
-
 .gallery-text h3 {
     margin-top: 0;
     font-family: "Courier New", Courier, monospace;
