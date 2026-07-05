@@ -1,4 +1,4 @@
-/* Palette Setup */
+/* --- 1. Palette & Global Setup --- */
 :root {
     --bg-white: #ffffff;
     --dark-green: #006400;
@@ -16,7 +16,7 @@ body {
     padding: 10px;
 }
 
-/* Scanline Overlay */
+/* --- 2. Screen Effects & Container --- */
 .crt-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.03) 50%);
@@ -33,36 +33,40 @@ body {
     box-shadow: 5px 5px 0px #000;
 }
 
-/* Typography Colors */
+/* --- 3. Header & Banner Styling --- */
+.top-header {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+h1 { font-family: "Courier New", Courier, monospace; text-align: center; margin: 0; }
 .dark-green { color: var(--dark-green); }
 .dark-blue { color: var(--dark-blue); }
 
-h1 { font-family: "Courier New", Courier, monospace; text-align: center; margin: 0; }
-
-/* Banner Image */
 .banner-img {
     display: block;
-    width: 100%;        /* This makes it fill the container width */
-    max-width: 100%;    /* This prevents it from overflowing */
-    height: auto;       /* This keeps the picture from looking stretched */
-    border: 2px solid var(--dark-green);
-    margin: 10px auto;  /* Centers the image */
+    margin: 15px auto;    /* Centers the image perfectly */
+    max-width: 550px;     /* Keeps the banner at an appropriate "regular" size */
+    width: 90%;           /* Responsive for phones */
+    height: auto;
+    border: 3px double var(--dark-green);
+    box-shadow: 4px 4px 0px #888;
 }
 
-/* The Marquee Ticker */
+/* --- 4. Retro Marquee Ticker --- */
 marquee {
     background: var(--dark-green);
     border: 2px inset #fff;
     padding: 5px;
     margin: 10px 0;
-}
-.marquee-text {
     color: #ffffff;
     font-weight: bold;
     font-family: Arial, sans-serif;
 }
 
-/* Navigation Buttons (Classic 3D Style) */
+/* --- 5. Navigation Buttons (Classic 3D Style) --- */
 nav {
     display: flex;
     flex-wrap: wrap;
@@ -89,7 +93,7 @@ nav button:active {
     border: 2px inset #fff;
 }
 
-/* Content Area */
+/* --- 6. Content & Maintenance Log --- */
 .page { display: none; padding: 10px; }
 .page.active { display: block; border: 1px solid var(--dark-green); margin-top: 10px; }
 
@@ -100,12 +104,12 @@ nav button:active {
     text-align: center;
     margin-bottom: 15px;
 }
-/* --- New Retro Log Styles --- */
+
 .retro-log-container {
     border: 2px solid var(--dark-green);
     padding: 15px;
     margin-top: 20px;
-    background-color: #fff; /* Keeps the list area clean */
+    background-color: #fff;
 }
 
 .maintenance-title {
@@ -148,6 +152,58 @@ nav button:active {
     padding-bottom: 10px;
 }
 
+/* --- 7. Photo Gallery & Scrapbook Styles --- */
+#photos.page { text-align: center; }
+
+.gallery-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    background: #ffffff;
+    border: 1px solid var(--border-gray);
+    padding: 20px;
+    box-shadow: 8px 8px 0px #cccccc;
+    max-width: 600px;
+    width: 95%;
+    text-align: center;
+}
+
+.gallery-img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border: 1px solid #000;
+    margin-bottom: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gallery-text {
+    padding: 15px;
+    border-top: 1px dashed var(--dark-green);
+    text-align: left;
+    background-color: #fafafa;
+}
+
+.gallery-text h3 {
+    margin-top: 0;
+    font-family: "Courier New", Courier, monospace;
+    text-decoration: underline;
+    font-size: 1.2em;
+}
+
+.gallery-item:hover {
+    border-color: var(--dark-blue);
+    box-shadow: 8px 8px 0px var(--dark-blue);
+}
+
+/* --- 8. Guestbook, Footer & Music --- */
 .guestbook-form {
     background: #e0e0e0;
     padding: 10px;
@@ -160,7 +216,6 @@ nav button:active {
     margin-bottom: 5px;
 }
 
-/* Footer & Music */
 footer {
     text-align: center;
     margin-top: 30px;
@@ -171,7 +226,7 @@ footer {
     display: inline-block;
     border: 2px inset #fff;
     background: #000;
-    color: #00ff00; /* Neon green like an old display */
+    color: #00ff00;
     padding: 10px;
     font-family: monospace;
 }
