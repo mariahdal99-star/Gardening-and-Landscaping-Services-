@@ -72,4 +72,159 @@
                         <li><span class="log-date">2012:</span> Birds stopped singing near the eastern fence.</li>
                         <li><span class="log-date">2020:</span> The garden no longer needs watering after midnight.</li>
                         <li><span class="log-date">2023:</span> Counted twelve lilies. The next morning there were thirteen.</li>
-                        <li class="special-fin
+                        <li class="special-final-entry">
+                            <span class="log-date">2026:</span> <b>My lilies finally bloomed. Every flower opened on June 6, 12:33 A.M. I don't remember planting the last one.</b>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="quote-generator">
+                    <p id="daily-quote" class="dark-blue">"The strongest roots are the ones nobody sees."</p>
+                    <button id="newQuoteBtn">Today's Reflection</button>
+                </div>
+            </section>
+
+            <!-- MASTER GARDENER HUB (TIPS) -->
+            <section id="tips" class="page">
+                <div class="wooden-sign">
+                    <h2 class="dark-blue">🌿 Master Gardener's Resource Hub 🌿</h2>
+                </div>
+
+                <div class="tips-menu">
+                    <button onclick="showSubTip('guide')" class="active-btn">Beginner Guide</button>
+                    <button onclick="showSubTip('species')">Species DB</button>
+                    <button onclick="showSubTip('propagation')">Propagation</button>
+                    <button onclick="showSubTip('pests')">Pests</button>
+                    <button onclick="showSubTip('calculator')">pH Calculator</button>
+                    <button onclick="showSubTip('calendar')">Calendar</button>
+                    <button onclick="showSubTip('research')">Library</button>
+                </div>
+
+                <hr class="flower-hr">
+
+                <!-- 1. The 10-Point Technical Guide -->
+                <div id="tip-guide" class="sub-tip active">
+                    <h3 class="maintenance-title">🌼 Comprehensive Lily Growing Guide</h3>
+                    <div class="tip-card">
+                        <h4 class="dark-blue">1. Choosing the Right Lily</h4>
+                        <p>Lilies (Lilium spp.) come in many varieties. Beginners should start with Asiatic lilies as they are hardy and reliable.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4 class="dark-blue">2. Sunlight Requirements</h4>
+                        <p>6-8 hours of direct sun is best. Flowers love sun; roots love shade.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4 class="dark-blue">3. Soil Preparation</h4>
+                        <p>Soil pH should be 6.0 to 6.8. Well-draining soil is vital to prevent bulb rot.</p>
+                    </div>
+                    <!-- Added points 4-10 summarized for space -->
+                    <div class="tip-card"><h4 class="dark-blue">4. Planting:</h4> 15-20cm deep. Pointy end up.</div>
+                    <div class="tip-card"><h4 class="dark-blue">5. Watering:</h4> Deeply at the base once or twice a week.</div>
+                    <div class="tip-card"><h4 class="dark-blue">6. Fertilizing:</h4> Use 10-10-10 when shoots first emerge.</div>
+                    <div class="tip-card"><h4 class="dark-blue">7. Pests:</h4> Monitor for red lily beetles and aphids daily.</div>
+                    <div class="tip-card"><h4 class="dark-blue">8. Deadheading:</h4> Remove spent flowers but keep green stems.</div>
+                    <div class="tip-card"><h4 class="dark-blue">9. Dormancy:</h4> Only cut stems once they turn completely yellow.</div>
+                    <div class="tip-card"><h4 class="dark-blue">10. Division:</h4> Lift and divide bulbs every 3-4 years in Autumn.</div>
+                </div>
+
+                <!-- 2. Interactive pH Calculator -->
+                <div id="tip-calculator" class="sub-tip">
+                    <h3 class="maintenance-title">🧪 Soil pH Calculator</h3>
+                    <div class="calc-box">
+                        <p>Access technical tools: <a href="https://growing.farm/tools/soil-ph-up-calculator" target="_blank" class="dark-blue">Soil pH Up Calculator</a></p>
+                        <label>Select Soil State:</label><br>
+                        <select id="phValue">
+                            <option value="bitter">Bitter / Sour (Low pH)</option>
+                            <option value="sweet">Sweet / Kind (High pH)</option>
+                            <option value="neutral">Neutral / Balanced</option>
+                        </select>
+                        <button onclick="calculatePH()">Analyze Heart-Soil</button>
+                        <p id="phResult" class="dark-blue"><i>Awaiting sample...</i></p>
+                    </div>
+                </div>
+
+                <!-- Other Sub-Tips (Summarized) -->
+                <div id="tip-species" class="sub-tip">
+                    <h3 class="maintenance-title">🌺 Species Database</h3>
+                    <p>Access the <a href="https://garden.org/plants/" target="_blank">Official Lily Registry</a>.</p>
+                </div>
+                <div id="tip-propagation" class="sub-tip"><h3 class="maintenance-title">🌱 Propagation Guide</h3><p>Scaling and division methods are best for Lilium.</p></div>
+                <div id="tip-pests" class="sub-tip"><h3 class="maintenance-title">🐛 Pest ID</h3><p>Watch for the Scarlet Beetle.</p></div>
+                <div id="tip-calendar" class="sub-tip"><h3 class="maintenance-title">📅 Calendar</h3><p>March: Fertilize. June: Bloom. October: Divide.</p></div>
+                <div id="tip-research" class="sub-tip"><h3 class="maintenance-title">📖 Research Library</h3><p>Referencing RHS and NALS horticultural literature.</p></div>
+            </section>
+
+            <!-- PHOTO GALLERY SECTION -->
+            <section id="photos" class="page">
+                <div class="wooden-sign">
+                    <h2 class="dark-blue">🌿 Garden Archive & Memories 🌿</h2>
+                </div>
+                <div class="gallery-container">
+                    <div class="gallery-item">
+                        <img src="photo1.jpeg" alt="Memory 1" class="gallery-img">
+                        <div class="gallery-text">
+                            <h3 class="dark-blue">The First Lily</h3>
+                            <p class="dark-green">The first bulb I ever planted. It taught me that some things take decades to decide if they trust you.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="photo2.jpeg" alt="Memory 2" class="gallery-img">
+                        <div class="gallery-text">
+                            <h3 class="dark-blue">The Midnight Bloom</h3>
+                            <p class="dark-green">Captured during the Fourth of July blossoms. Arrived with fireworks and quiet roots.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="photo3.jpeg" alt="Memory 3" class="gallery-img">
+                        <div class="gallery-text">
+                            <h3 class="dark-blue">The Last Unpicked Rose</h3>
+                            <p class="dark-green">Waiting....</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PLANT JOURNAL -->
+            <section id="journal" class="page">
+                <h2 class="dark-green">Plant Journal</h2>
+                <div class="diary-entry">
+                    <span class="date dark-blue">October 14, 1999</span>
+                    <p>Something is growing in the corner behind the shed. I didn't plant it, but it seems to recognize my voice.</p>
+                </div>
+            </section>
+
+            <!-- GUESTBOOK (FIREBASE) -->
+            <section id="guestbook" class="page">
+                <h2 class="dark-blue">Sign My Guestbook, my love 💗</h2>
+                <div class="guestbook-form">
+                    <input type="text" id="guestName" maxlength="40" placeholder="Your Name">
+                    <textarea id="guestMessage" maxlength="500" placeholder="Your message..."></textarea>
+                    <button id="submitComment">Plant a Message</button>
+                </div>
+                <hr class="flower-hr">
+                <div id="guestbook-entries">
+                    <p class="loading-msg">Loading the soil... stay still...</p>
+                </div>
+            </section>
+
+            <!-- ABOUT ME -->
+            <section id="about" class="page">
+                <h2 class="dark-green">About Me</h2>
+                <p>I live here alone, but I am rarely lonely. The garden provides plenty of company. Thank you for visiting my journal.</p>
+            </section>
+        </main>
+
+        <footer>
+            <hr class="flower-hr">
+            <p class="dark-blue">🌻 Best viewed in 800×600 | Green since 1999 🌻</p>
+            <p class="dark-green">Visitor Count: <span id="counter">0004382</span></p>
+            <div class="music-player">
+                <p>🌼 Now Playing: <b class="dark-blue">Soft_Vines.mid</b></p>
+                <button id="musicBtn">▶ Play Music</button>
+            </div>
+        </footer>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
