@@ -1,4 +1,4 @@
-/* --- 1. Palette & Global Setup --- */
+/* 1. Palette & Global Setup */
 :root {
     --bg-white: #ffffff;
     --dark-green: #006400;
@@ -9,284 +9,88 @@
 }
 
 body {
-    background-color: #d3d3d3; /* Outer background is gray like old Windows */
+    background-color: #d3d3d3;
     color: var(--dark-green);
     font-family: "Times New Roman", Times, serif;
-    margin: 0;
-    padding: 10px;
+    margin: 0; padding: 10px;
 }
 
-/* --- 2. Screen Effects & Container --- */
+/* 2. CRT Scanline Overlay */
 .crt-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.03) 50%);
-    background-size: 100% 4px;
-    pointer-events: none; z-index: 9999;
+    background-size: 100% 4px; pointer-events: none; z-index: 9999;
 }
 
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: var(--bg-white);
-    border: 3px double var(--border-gray);
-    padding: 15px;
+    max-width: 800px; margin: 0 auto; background-color: var(--bg-white);
+    border: 3px double var(--border-gray); padding: 15px;
     box-shadow: 5px 5px 0px #000;
 }
 
-/* --- 3. Header & Banner Styling --- */
-.top-header {
-    width: 100%;
-    text-align: center;
-    border-collapse: collapse;
-    margin-bottom: 10px;
-}
-
-h1 { font-family: "Courier New", Courier, monospace; text-align: center; margin: 0; }
+/* 3. Typography & Titles */
+h1 { font-family: "Courier New", monospace; text-align: center; margin: 0; }
 .dark-green { color: var(--dark-green); }
 .dark-blue { color: var(--dark-blue); }
 
+.top-header { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
+.title-cell { text-align: center; }
+
+/* 4. Banner & Images */
 .banner-img {
-    display: block;
-    margin: 15px auto;    /* Centers the image perfectly */
-    max-width: 550px;     /* Keeps the banner at an appropriate "regular" size */
-    width: 90%;           /* Responsive for phones */
-    height: auto;
-    border: 3px double var(--dark-green);
-    box-shadow: 4px 4px 0px #888;
+    display: block; margin: 15px auto; max-width: 550px; width: 90%;
+    height: auto; border: 3px double var(--dark-green); box-shadow: 4px 4px 0px #888;
 }
 
-/* --- 4. Retro Marquee Ticker --- */
-marquee {
-    background: var(--dark-green);
-    border: 2px inset #fff;
-    padding: 5px;
-    margin: 10px 0;
-    color: #ffffff;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-}
+/* 5. Marquee & Navigation */
+marquee { background: var(--dark-green); color: #fff; padding: 5px; font-weight: bold; }
 
-/* --- 5. Navigation Buttons (Classic 3D Style) --- */
-nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2px;
-    background: #c0c0c0;
-    padding: 5px;
-    border: 2px solid #000;
+nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 2px; background: #c0c0c0; padding: 5px; border: 2px solid #000; }
+nav button { 
+    background: #c0c0c0; border: 2px outset #fff; padding: 5px 10px; 
+    cursor: pointer; font-weight: bold; color: var(--dark-blue); 
 }
+nav button:active { border-style: inset; }
 
-nav button {
-    background: #c0c0c0;
-    border-top: 2px solid #fff;
-    border-left: 2px solid #fff;
-    border-bottom: 2px solid #808080;
-    border-right: 2px solid #808080;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-weight: bold;
-    color: var(--dark-blue);
-}
+/* 6. Page Content */
+.page { display: none; padding: 10px; border: 1px solid var(--dark-green); margin-top: 10px; }
+.page.active { display: block; }
 
-nav button:active {
-    border: 2px inset #fff;
-}
+.wooden-sign { background: #f5deb3; border: 3px solid var(--rust-brown); padding: 10px; text-align: center; margin-bottom: 15px; }
 
-/* --- 6. Content & Maintenance Log --- */
-.page { display: none; padding: 10px; }
-.page.active { display: block; border: 1px solid var(--dark-green); margin-top: 10px; }
+/* 7. Maintenance Log */
+.retro-log-container { border: 2px solid var(--dark-green); padding: 15px; margin-top: 20px; }
+.maintenance-title { 
+    background: var(--dark-green); color: var(--bright-yellow); padding: 5px; 
+    display: inline-block; border: 2px outset var(--bright-yellow); 
+}
+.log-list { list-style-type: "🍀 "; font-weight: bold; line-height: 1.6; }
+.log-date { background: var(--bright-yellow); color: #000; padding: 0 4px; font-family: monospace; }
+.special-final-entry { border: 2px dashed var(--dark-green); background: #f9ffd9; padding: 8px; margin-top: 10px; }
 
-.wooden-sign {
-    background: #f5deb3;
-    border: 3px solid var(--rust-brown);
-    padding: 10px;
-    text-align: center;
-    margin-bottom: 15px;
+/* 8. Photo Gallery (Overflow Fixed) */
+.gallery-container { display: flex; flex-direction: column; align-items: center; gap: 30px; }
+.gallery-item { 
+    background: #fff; border: 1px solid var(--border-gray); padding: 15px; 
+    box-shadow: 8px 8px 0px #ccc; max-width: 100%; text-align: center; 
 }
+.gallery-img { 
+    max-width: 100%; height: auto; max-height: 500px; 
+    display: block; margin: 0 auto 15px; border: 1px solid #000; 
+}
+.gallery-text { border-top: 1px dashed var(--dark-green); text-align: left; background: #fafafa; padding: 10px; }
 
-.retro-log-container {
-    border: 2px solid var(--dark-green);
-    padding: 15px;
-    margin-top: 20px;
-    background-color: #fff;
-}
-
-.maintenance-title {
-    background-color: var(--dark-green); 
-    color: var(--bright-yellow);          
-    padding: 5px 10px;
-    display: inline-block;
-    font-family: "Courier New", monospace;
-    border: 2px outset var(--bright-yellow);
-    margin-bottom: 15px;
-    font-size: 1.2em;
-}
-
-.log-list {
-    list-style-type: "🍀 "; 
-    color: var(--dark-green);         
-    font-weight: bold;
-    line-height: 1.6;
-}
-
-.log-date {
-    color: #000;         
-    background-color: var(--bright-yellow); 
-    padding: 0 4px;
-    border: 1px solid #ccc;
-    font-family: monospace;
-}
-
-.special-final-entry {
-    color: #000;
-    border: 2px dashed var(--dark-green);
-    background-color: #f9ffd9; 
-    padding: 8px;
-    margin-top: 10px;
-}
-
-.tip-card, .diary-entry {
-    border-bottom: 1px dashed var(--dark-green);
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-}
-
-/* --- 7. Photo Gallery & Scrapbook Styles --- */
-#photos.page { 
-    text-align: center; 
-}
-
-.gallery-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    margin-top: 20px;
-    width: 100%; /* Ensures container stays within the white page */
-}
-
-.gallery-item {
-    box-sizing: border-box; /* This keeps padding inside the box */
-    background: #ffffff;
-    border: 1px solid var(--border-gray);
-    padding: 15px;
-    box-shadow: 8px 8px 0px #cccccc;
-    max-width: 100%; /* Prevents the box from growing wider than the page */
-    width: 100%;
-    text-align: center;
-    overflow: hidden; /* Prevents anything from spilling out */
-}
-
-.gallery-img {
-    display: block;
-    margin: 0 auto 15px auto;
-    max-width: 100%;    /* This forces the image to stay INSIDE the box */
-    height: auto;
-    max-height: 500px;  /* This stops vertical photos from being too huge */
-    object-fit: contain; /* This keeps the photo from stretching */
-    border: 1px solid #000;
-}
-
-.gallery-text {
-    padding: 15px;
-    border-top: 1px dashed var(--dark-green);
-    text-align: left;
-    background-color: #fafafa;
-    word-wrap: break-word; /* Prevents long text from breaking the box */
-}
-.gallery-text h3 {
-    margin-top: 0;
-    font-family: "Courier New", Courier, monospace;
-    text-decoration: underline;
-    font-size: 1.2em;
-}
-
-.gallery-item:hover {
-    border-color: var(--dark-blue);
-    box-shadow: 8px 8px 0px var(--dark-blue);
-}
-
-/* --- 8. Guestbook, Footer & Music --- */
-.guestbook-form {
-    background: #e0e0e0;
-    padding: 10px;
-    border: 2px ridge #fff;
-}
-
-.guestbook-form input, .guestbook-form textarea {
-    width: 100%;
-    border: 1px solid var(--dark-blue);
-    margin-bottom: 5px;
-}
-
-footer {
-    text-align: center;
-    margin-top: 30px;
-    font-size: 0.9em;
-}
-
-.music-player {
-    display: inline-block;
-    border: 2px inset #fff;
-    background: #000;
-    color: #00ff00;
-    padding: 10px;
-    font-family: monospace;
-}
-
-.flower-hr {
-    height: 20px;
-    border: 0;
-    background-image: url('https://www.transparenttextures.com/patterns/flowers.png');
-    background-repeat: repeat-x;
-}
-/* --- Tips Hub Sub-Menu --- */
-.tips-menu {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin-bottom: 20px;
-}
-.tips-menu button {
-    background: #e0e0e0;
-    border: 1px solid #000;
-    font-size: 0.8em;
-    padding: 5px;
-    cursor: pointer;
-}
+/* 9. Hub Sub-Menu */
+.tips-menu { display: flex; justify-content: center; flex-wrap: wrap; gap: 5px; margin-bottom: 20px; }
+.tips-menu button { background: #e0e0e0; border: 1px solid #000; cursor: pointer; padding: 5px; }
+.active-btn { background: var(--dark-green) !important; color: var(--bright-yellow) !important; }
 .sub-tip { display: none; }
-.sub-tip.active { display: block; animation: fadeIn 0.3s; }
+.sub-tip.active { display: block; }
 
-/* --- Table & Calendar Styles --- */
-.species-table {
-    border-collapse: collapse;
-    margin: 10px 0;
-    font-size: 0.9em;
-}
-.species-table td, .species-table th { padding: 8px; border: 1px solid var(--dark-green); }
+.calc-box { background: #eee; border: 2px inset #fff; padding: 15px; text-align: center; }
+.tip-card { border-bottom: 1px dashed var(--dark-green); margin-bottom: 15px; padding-bottom: 10px; }
 
-.calendar-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-.month-box {
-    border: 1px dashed var(--dark-green);
-    padding: 10px;
-    background: #fdfdfd;
-}
-
-.calc-box {
-    background: #eee;
-    border: 2px inset #fff;
-    padding: 15px;
-    text-align: center;
-}
-/* Highlights which category you are currently viewing */
-.tips-menu button:active, .tips-menu button.active-btn {
-    background: var(--dark-green);
-    color: var(--bright-yellow);
-    border: 1px inset #000;
-}
+/* 10. Footer & Misc */
+footer { text-align: center; margin-top: 30px; }
+.music-player { background: #000; color: #00ff00; padding: 10px; display: inline-block; font-family: monospace; border: 2px inset #fff; }
+.flower-hr { height: 20px; border: 0; background-image: url('https://www.transparenttextures.com/patterns/flowers.png'); background-repeat: repeat-x; }
