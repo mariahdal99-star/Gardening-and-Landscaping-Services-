@@ -11,7 +11,6 @@
     <div class="crt-overlay"></div>
 
     <div class="container">
-        <!-- FIXED: Added the opening header tag here -->
         <header>
             <table class="top-header">
                 <tr>
@@ -21,7 +20,7 @@
                         <p class="subtitle">
                             <span class="blue">ESTABLISHED 1999</span> •
                             <span class="green">QUALITY YOU CAN TRUST</span> •
-                            <span class="blue">WELCOME LOVE</span>
+                            <span class="blue">WELCOME FRIEND</span>
                         </p>
                     </td>
                     <td class="flower-right">🌸🦋🌸</td>
@@ -30,6 +29,11 @@
 
             <img src="banner.png" alt="Gardening Banner" class="banner">
         </header>
+
+        <!-- THE MARQUEE IS NOW PLACED HERE -->
+        <marquee behavior="alternate" scrollamount="3">
+            🌿 Welcome to my garden! Please sign the guestbook before you leave! 🌿
+        </marquee>
 
         <nav>
             <button onclick="showPage('home')">Home</button>
@@ -46,26 +50,18 @@
                     <h2>"A garden is a story told by the hands."</h2>
                 </div>
                 <p>Welcome to my patch of green. I have been tending to this soil for a very long time. People often ask me what the secret is to a healthy garden.</p>
-                <p>The secret is simple: <b>Attention.</b> The things we grow need to be watched. They need to know they are being observed. Please, browse my tips and sign the guestbook before you leave.</p>
+                <p>The things we grow need to be watched. They need to know they are being observed. Please, browse my tips and sign the guestbook before you leave.</p>
                 
                 <div class="update-box">
                     <h3>Maintenance Log:</h3>
                     <ul>
                         <li>1999: Planted the first lily. It refused to bloom.</li>
-                        <li>2000: Added richer soil. The roots spread farther than expected.</li>
                         <li>2001: The garden remained quiet. Something beneath it did not.</li>
-                        <li>2002: Visitors reported hearing footsteps after sunset. No tracks were found.</li>
                         <li>2003: Pruned the hedges. They grew back overnight.</li>
-                        <li>2004: Every flower now faces the house, even in darkness.</li>
                         <li>2006: Removed an old scarecrow. It returned before dawn.</li>
-                        <li>2009: The lilies began blooming where nothing had ever been planted.</li>
-                        <li>2012: Birds stopped singing near the eastern fence.</li>
                         <li>2015: The soil has become unusually warm every October.</li>
-                        <li>2018: Several guests claimed someone waved from the greenhouse. It has always been empty.</li>
-                        <li>2020: The garden no longer needs watering after midnight.</li>
                         <li>2023: Counted twelve lilies. The next morning there were thirteen.</li>
-                        <li>2025: I finally stopped asking who keeps tending the garden while I sleep.</li>
-                        <li><strong>2026: After twenty-seven years of patient care, my lilies finally bloomed. They opened all at once at June 06 at  12 :33 A.M. They were already watching me.</strong></li>
+                        <li><strong>2026: My lilies finally bloomed. They opened all at once on June 6, at 12:33 A.M. They were already watching me.</strong></li>
                     </ul>
                 </div>
 
@@ -149,24 +145,20 @@
             <!-- About Section -->
             <section id="about" class="page">
                 <h2>About Me</h2>
-                <p>I have been a landscaper for thirty years. I believe that a garden is more than just plants—it is a living, breathing memory. I live here alone, but I am rarely lonely. The garden provides plenty of company.</p>
+                <p>I live here alone, but I am rarely lonely. The garden provides plenty of company.</p>
             </section>
         </main>
 
         <footer>
             <hr class="flower-hr">
-            <p>
-                🌻 Best viewed in 800×600 | Made with HTML | Green since 1999 🌻
-            </p>
-            <p>
-                Visitor Count: <span id="counter">0004382</span>
-            </p>
+            <p>🌻 Best viewed in 800×600 | Green since 1999 🌻</p>
+            <p>Visitor Count: <span id="counter">0004382</span></p>
             <div class="music-player">
                 <p>🌼 Now Playing: <b>Soft_Vines.mid</b></p>
                 <button id="musicBtn">▶ Play Music</button>
             </div>
         </footer>
-    </div> <!-- This closes the container div -->
+    </div>
 
     <script type="module" src="script.js"></script>
 </body>
