@@ -3,13 +3,14 @@
     --bg-white: #ffffff;
     --dark-green: #006400;
     --dark-blue: #00008b;
+    --bright-yellow: #FFFF00;
     --border-gray: #808080;
     --rust-brown: #8b4513;
 }
 
 body {
     background-color: #d3d3d3; /* Outer background is gray like old Windows */
-    color: #000000;
+    color: var(--dark-green);
     font-family: "Times New Roman", Times, serif;
     margin: 0;
     padding: 10px;
@@ -98,6 +99,47 @@ nav button:active {
     padding: 10px;
     text-align: center;
     margin-bottom: 15px;
+}
+/* --- New Retro Log Styles --- */
+.retro-log-container {
+    border: 2px solid var(--dark-green);
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #fff; /* Keeps the list area clean */
+}
+
+.maintenance-title {
+    background-color: var(--dark-green); 
+    color: var(--bright-yellow);          
+    padding: 5px 10px;
+    display: inline-block;
+    font-family: "Courier New", monospace;
+    border: 2px outset var(--bright-yellow);
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.log-list {
+    list-style-type: "🍀 "; 
+    color: var(--dark-green);         
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+.log-date {
+    color: #000;         
+    background-color: var(--bright-yellow); 
+    padding: 0 4px;
+    border: 1px solid #ccc;
+    font-family: monospace;
+}
+
+.special-final-entry {
+    color: #000;
+    border: 2px dashed var(--dark-green);
+    background-color: #f9ffd9; 
+    padding: 8px;
+    margin-top: 10px;
 }
 
 .tip-card, .diary-entry {
