@@ -1,65 +1,140 @@
+/* Palette Setup */
 :root {
-    --bg-color: #fdf5e6;
-    --text-color: #5d4037;
-    --accent-green: #2e7d32;
-    --amber-glow: #ffbf00;
-    --rust: #a0522d;
+    --bg-white: #ffffff;
+    --dark-green: #006400;
+    --dark-blue: #00008b;
+    --border-gray: #808080;
+    --rust-brown: #8b4513;
 }
 
 body {
-    background-color: var(--bg-color);
-    background-image: url('https://www.transparenttextures.com/patterns/pinstriped-suit.png');
-    color: var(--text-color);
+    background-color: #d3d3d3; /* Outer background is gray like old Windows */
+    color: #000000;
     font-family: "Times New Roman", Times, serif;
-    margin: 0; padding: 20px;
+    margin: 0;
+    padding: 10px;
 }
 
+/* Scanline Overlay */
 .crt-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), 
-                linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
-    background-size: 100% 3px, 3px 100%; pointer-events: none; z-index: 9999;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.03) 50%);
+    background-size: 100% 4px;
+    pointer-events: none; z-index: 9999;
 }
 
 .container {
-    max-width: 800px; margin: 0 auto; background: #fffaf0;
-    border: 3px outset var(--rust); padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--bg-white);
+    border: 3px double var(--border-gray);
+    padding: 15px;
+    box-shadow: 5px 5px 0px #000;
 }
 
-h1 { font-family: "Courier New", monospace; text-align: center; color: var(--accent-green); }
+/* Typography Colors */
+.dark-green { color: var(--dark-green); }
+.dark-blue { color: var(--dark-blue); }
 
-.blink { text-align: center; font-weight: bold; color: var(--rust); animation: blinker 1.5s linear infinite; }
-@keyframes blinker { 50% { opacity: 0; } }
+h1 { font-family: "Courier New", Courier, monospace; text-align: center; margin: 0; }
 
-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; background: var(--accent-green); padding: 10px; margin-bottom: 20px; }
-nav button { background: #e0e0e0; border: 2px outset #fff; padding: 5px 15px; cursor: pointer; font-weight: bold; }
-
-.page { display: none; padding: 20px; }
-.page.active { display: block; }
-
-.wooden-sign { background: #deb887; border: 4px solid #8b4513; padding: 10px; text-align: center; font-style: italic; }
-
-.guestbook-form { background: #efe4d0; padding: 15px; border: 2px inset #fff; }
-.guestbook-form input, .guestbook-form textarea {
-    width: 100%; margin-bottom: 10px; border: 1px solid var(--rust);
-    font-family: serif; padding: 5px; box-sizing: border-box;
+/* Banner Image */
+.banner-img {
+    width: 100%;
+    height: auto;
+    border: 2px solid var(--dark-green);
+    margin-top: 10px;
 }
 
-/* Retro Comment Style */
-.guest-entry {
-    background: #fff;
-    border: 1px solid #ccc;
-    border-left: 10px solid var(--accent-green);
+/* The Marquee Ticker */
+marquee {
+    background: var(--dark-green);
+    border: 2px inset #fff;
+    padding: 5px;
+    margin: 10px 0;
+}
+.marquee-text {
+    color: #ffffff;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation Buttons (Classic 3D Style) */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2px;
+    background: #c0c0c0;
+    padding: 5px;
+    border: 2px solid #000;
+}
+
+nav button {
+    background: #c0c0c0;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #808080;
+    border-right: 2px solid #808080;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--dark-blue);
+}
+
+nav button:active {
+    border: 2px inset #fff;
+}
+
+/* Content Area */
+.page { display: none; padding: 10px; }
+.page.active { display: block; border: 1px solid var(--dark-green); margin-top: 10px; }
+
+.wooden-sign {
+    background: #f5deb3;
+    border: 3px solid var(--rust-brown);
     padding: 10px;
-    margin-bottom: 10px;
-    box-shadow: 3px 3px 0px #ddd;
+    text-align: center;
+    margin-bottom: 15px;
 }
-.entry-header { display: flex; justify-content: space-between; font-weight: bold; border-bottom: 1px dotted #ccc; margin-bottom: 5px; }
-.entry-name { color: var(--rust); }
-.entry-date { font-size: 0.8em; color: #888; font-family: monospace; }
-.entry-msg { word-wrap: break-word; line-height: 1.4; }
 
-.flower-hr { border: 0; height: 30px; background-image: url('https://www.transparenttextures.com/patterns/flowers.png'); background-repeat: repeat-x; }
+.tip-card, .diary-entry {
+    border-bottom: 1px dashed var(--dark-green);
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+}
 
-footer { text-align: center; font-size: 0.9em; margin-top: 40px; }
-.music-player { background: #333; color: var(--amber-glow); padding: 10px; display: inline-block; font-family: monospace; }
+.guestbook-form {
+    background: #e0e0e0;
+    padding: 10px;
+    border: 2px ridge #fff;
+}
+
+.guestbook-form input, .guestbook-form textarea {
+    width: 100%;
+    border: 1px solid var(--dark-blue);
+    margin-bottom: 5px;
+}
+
+/* Footer & Music */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9em;
+}
+
+.music-player {
+    display: inline-block;
+    border: 2px inset #fff;
+    background: #000;
+    color: #00ff00; /* Neon green like an old display */
+    padding: 10px;
+    font-family: monospace;
+}
+
+.flower-hr {
+    height: 20px;
+    border: 0;
+    background-image: url('https://www.transparenttextures.com/patterns/flowers.png');
+    background-repeat: repeat-x;
+}
