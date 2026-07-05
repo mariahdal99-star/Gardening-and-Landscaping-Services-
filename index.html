@@ -1,43 +1,151 @@
-<section id="tips" class="page">
-    <h2>Essential Garden Care</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gardening and Landscaping Services - Welcome to the Garden</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- The vintage monitor scanline effect -->
+    <div class="crt-overlay"></div>
 
-    <div class="tip-card">
-        <h3>1. Water Before Sunrise</h3>
-        <p>Experienced gardeners know that plants prefer to be watered before the sun rises. If you hear them asking for water after dark, close your curtains. Healthy plants never speak after sunset.</p>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>Gardening & Landscaping Services</h1>
+                <p class="blink">*** ESTABLISHED 1999 - QUALITY YOU CAN TRUST ***</p>
+                <img src="https://via.placeholder.com/468x60?text=Everything+is+growing+exactly+as+planned" alt="Banner" class="banner">
+            </div>
+        </header>
+
+        <nav>
+            <button onclick="showPage('home')">Home</button>
+            <button onclick="showPage('tips')">Garden Tips</button>
+            <button onclick="showPage('journal')">Plant Journal</button>
+            <button onclick="showPage('guestbook')">Guestbook</button>
+            <button onclick="showPage('about')">About Me</button>
+        </nav>
+
+        <main id="content">
+            <!-- Home Page -->
+            <section id="home" class="page active">
+                <div class="wooden-sign">
+                    <h2>"A garden is a story told by the hands."</h2>
+                </div>
+                <p>Welcome to my patch of green. I have been tending to this soil for a very long time. People often ask me what the secret is to a healthy garden.</p>
+                <p>The secret is simple: <b>Attention.</b> The things we grow need to be watched. They need to know they are being observed. Please, browse my tips and sign the guestbook before you leave.</p>
+                
+                <div class="update-box">
+                    <h3>Maintenance Log:</h3>
+                    <ul>
+                        <li>July 2003: Pruned the hedges. They didn't like it.</li>
+                        <li>May 2002: Visitor counter reset after the... incident.</li>
+                        <li>Jan 2001: The soil is unusually warm this winter.</li>
+                    </ul>
+                </div>
+
+                <div class="quote-generator">
+                    <p id="daily-quote">"The garden dislikes being watched as much as it dislikes being abandoned."</p>
+                    <button id="newQuoteBtn">Get Today's Reflection</button>
+                </div>
+            </section>
+
+            <!-- CORRECTED TIPS SECTION -->
+            <section id="tips" class="page">
+                <h2>Essential Garden Care</h2>
+
+                <div class="tip-card">
+                    <h3>1. Water Before Sunrise</h3>
+                    <p>Experienced gardeners know that plants prefer to be watered before the sun rises. If you hear them asking for water after dark, close your curtains. Healthy plants never speak after sunset.</p>
+                </div>
+
+                <div class="tip-card">
+                    <h3>2. Count Every Flower</h3>
+                    <p>Always remember how many flowers you planted. If you wake up and discover one more than yesterday, admire it from a distance. It is considered rude to ask where it came from.</p>
+                </div>
+
+                <div class="tip-card">
+                    <h3>3. Never Disturb the Roots</h3>
+                    <p>The oldest roots have earned their place. Digging too deeply may awaken things that have been patiently waiting beneath the soil. Some gardens remember every hand that has touched them.</p>
+                </div>
+
+                <div class="tip-card">
+                    <h3>4. Listen to the Wind</h3>
+                    <p>On quiet evenings the wind may carry unfamiliar names through the hedges. They are usually the names of previous gardeners. It is polite not to answer when they call yours.</p>
+                </div>
+
+                <div class="tip-card">
+                    <h3>5. The Empty Bench</h3>
+                    <p>Every proper garden should have somewhere peaceful to sit. If you ever find someone already occupying the bench, allow them to finish watching the flowers before you approach.</p>
+                </div>
+
+                <div class="tip-card">
+                    <h3>6. Leave One Rose Unpicked</h3>
+                    <p>However beautiful the roses become, leave one untouched. Every garden deserves something that belongs only to itself.</p>
+                </div>
+
+                <div class="tip-card">
+                    <h3>7. Do Not Follow the Butterflies</h3>
+                    <p>They always know the shortest path home. Unfortunately, it is rarely your home.</p>
+                </div>
+
+                <div class="tip-card">
+                    <h3>8. Closing the Gate</h3>
+                    <p>Before leaving, lock the garden gate and count slowly to ten. If you hear footsteps after the gate is closed, do not look back. The garden dislikes being watched as much as it dislikes being abandoned.</p>
+                </div>
+            </section>
+
+            <!-- Plant Journal -->
+            <section id="journal" class="page">
+                <h2>Plant Journal</h2>
+                <div class="diary-entry">
+                    <span class="date">October 14, 1999</span>
+                    <p>Something is growing in the back corner behind the shed. I didn't plant it, but it seems to recognize my voice. I will feed it tomorrow.</p>
+                </div>
+            </section>
+
+            <!-- Guestbook Section (Required for Firebase) -->
+            <section id="guestbook" class="page">
+                <h2>Sign My Guestbook</h2>
+                <p>Did you enjoy your walk through the hedges? Leave a message before you go.</p>
+                
+                <div class="guestbook-form">
+                    <input type="text" id="guestName" maxlength="40" placeholder="Your Name">
+                    <textarea id="guestMessage" maxlength="500" placeholder="Your message to the gardener..."></textarea>
+                    <button id="submitComment">Plant a Message</button>
+                </div>
+
+                <hr class="flower-hr">
+                
+                <div id="guestbook-entries">
+                    <p class="loading-msg">Loading the guestbook... stay still...</p>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="page">
+                <h2>About Me</h2>
+                <p>I have been a landscaper for thirty years. I believe that a garden is more than just plants—it is a living, breathing memory. I live here alone, but I am rarely lonely. The garden provides plenty of company.</p>
+            </section>
+        </main>
+
+        <footer>
+            <hr class="flower-hr">
+            <div class="footer-stats">
+                <p>Visitor Count: <span id="counter">0004382</span></p>
+                <p>Best viewed in 800x600 | 256 Colors</p>
+                <p>Copyright &copy; 1999&ndash;2003 Gardening and Landscaping Services</p>
+                <p><i>"Thank you for becoming part of the soil."</i></p>
+            </div>
+            <div class="music-player">
+                <span>Now Playing: Forest_Whispers.mid</span>
+                <button id="musicBtn">▶ Play Music</button>
+            </div>
+        </footer>
     </div>
 
-    <div class="tip-card">
-        <h3>2. Count Every Flower</h3>
-        <p>Always remember how many flowers you planted. If you wake up and discover one more than yesterday, admire it from a distance. It is considered rude to ask where it came from.</p>
-    </div>
-
-    <div class="tip-card">
-        <h3>3. Never Disturb the Roots</h3>
-        <p>The oldest roots have earned their place. Digging too deeply may awaken things that have been patiently waiting beneath the soil. Some gardens remember every hand that has touched them.</p>
-    </div>
-
-    <div class="tip-card">
-        <h3>4. Listen to the Wind</h3>
-        <p>On quiet evenings the wind may carry unfamiliar names through the hedges. They are usually the names of previous gardeners. It is polite not to answer when they call yours.</p>
-    </div>
-
-    <div class="tip-card">
-        <h3>5. The Empty Bench</h3>
-        <p>Every proper garden should have somewhere peaceful to sit. If you ever find someone already occupying the bench, allow them to finish watching the flowers before you approach.</p>
-    </div>
-
-    <div class="tip-card">
-        <h3>6. Leave One Rose Unpicked</h3>
-        <p>However beautiful the roses become, leave one untouched. Every garden deserves something that belongs only to itself.</p>
-    </div>
-
-    <div class="tip-card">
-        <h3>7. Do Not Follow the Butterflies</h3>
-        <p>They always know the shortest path home. Unfortunately, it is rarely your home.</p>
-    </div>
-
-    <div class="tip-card">
-        <h3>8. Closing the Gate</h3>
-        <p>Before leaving, lock the garden gate and count slowly to ten. If you hear footsteps after the gate is closed, do not look back. The garden dislikes being watched as much as it dislikes being abandoned.</p>
-    </div>
-</section>
+    <!-- This links your JavaScript file. Make sure type="module" is there for Firebase! -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>
