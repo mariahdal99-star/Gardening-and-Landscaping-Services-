@@ -94,3 +94,47 @@ nav button:active { border-style: inset; }
 footer { text-align: center; margin-top: 30px; }
 .music-player { background: #000; color: #00ff00; padding: 10px; display: inline-block; font-family: monospace; border: 2px inset #fff; }
 .flower-hr { height: 20px; border: 0; background-image: url('https://www.transparenttextures.com/patterns/flowers.png'); background-repeat: repeat-x; }
+/* --- Calendar & Schedule Dashboard Styles --- */
+.retro-table {
+    border-collapse: collapse;
+    font-family: "Times New Roman", serif;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+.retro-table th {
+    padding: 10px;
+    font-family: "Courier New", monospace;
+    text-transform: uppercase;
+}
+
+.retro-table td {
+    padding: 8px;
+    border: 1px solid var(--border-gray);
+    font-size: 0.9em;
+    vertical-align: top;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.month-box {
+    border: 2px inset #fff;
+    background: #f0f0f0;
+    padding: 10px;
+    box-shadow: 3px 3px 0px #888;
+}
+
+/* Mobile fix for big tables */
+@media screen and (max-width: 600px) {
+    .calendar-grid {
+        grid-template-columns: 1fr;
+    }
+    .retro-table td {
+        font-size: 0.8em;
+    }
+}
